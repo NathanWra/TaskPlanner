@@ -10,27 +10,45 @@
 
      <!-- Our CSS -->
 
-     <link rel="stylesheet" href="./css/style.css"></link>
+     <link rel="stylesheet" href="./css/styles.css"></link>
 
     <title>New Bucket</title>
   </head>
   <body>
     <h1>New Bucket</h1>
 
-    <form>
+    <form class="form-horizontal">
+
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="name">Name:</label>
+  <input type="text" class="form-control" id="name">
   </div>
+
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+  <div class="form-group">
+    <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
+    <input type="text" class="form-control" id="AssignedTo">
   </div>
+
+   <div class="form-group">
+    <label for="name">Due Date:</label>
+  <input type="date" class="form-control" id="DueDate">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="status">
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Review</option>
+      <option>Done</option>
+    </select>
+  </div>
+
   <button type="submit" class="btn btn-primary">Save Changes</button>
   <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
