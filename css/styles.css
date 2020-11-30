@@ -1,0 +1,14 @@
+html,
+body {
+  background-color: rgb(229, 237, 240);
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+.card-text {
+  color: rgb(67, 17, 114);
+  font-weight: 600;
+}
