@@ -8,6 +8,10 @@ h3 {
   text-align: center;
 }
 
+body > h3 > i {
+  color: white;
+}
+
 .card-text {
   color: rgb(67, 17, 114);
   font-weight: 600;
@@ -38,4 +42,8 @@ th {
 
 .btn {
   background-color: green;
+}
+
+i {
+  color: rgb(67, 17, 114);
 }
