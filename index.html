@@ -24,104 +24,73 @@
     <h1>Bucket List!</h1>
     <h3>Things to do in the next 90 days. 
     
-      <!-- Old button -->
-     <!-- <a class="btn btn-primary" role="button" ><i class="fa fa-plus" style="font: size 24px"></i> -->
-
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus" style="font: size 24px"></i>
-</button>
+<!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBucket"><i class="fa fa-plus" style="font: size 24px"></i>
+      </button>
+    </h3>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Bucket</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form class="form-horizontal">
 
-  <div class="container">
-  
-      <div class="form-group">
-    <label for="name">Name:</label>
-  <input type="text" class="form-control" id="name">
-  </div>
+    <div class="modal fade" id="newBucket" tabindex="-1"     role="dialog" aria-labelledby="newBucketLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newBucketLabel">New Bucket</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
 
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description">
-  </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="container">
+          
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name">
+                </div>  
 
-  <div class="form-group">
-    <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
-    <input type="text" class="form-control" id="AssignedTo">
-  </div>
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>  
 
-   <div class="form-group">
-    <label for="name">Due Date:</label>
-  <input type="date" class="form-control" id="DueDate">
-  </div>
+                <div class="form-group">
+                  <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
+                  <input type="text" class="form-control" id="AssignedTo">
+                </div>
 
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Status</label>
-    <select multiple class="form-control" id="status">
-      <option>To Do</option>
-      <option>In Progress</option>
-      <option>Review</option>
-      <option>Done</option>
-    </select>
-  </div>
+                <div class="form-group">
+                  <label for="name">Due Date:</label>
+                  <input type="date" class="form-control" id="DueDate">
+                </div>
 
-    <!-- <div class="form-group">
-      <label for="status">Status</label>
-        <input id="status" name="status" type="type" list="status-choices">
-          <datalist id="status-choices">
-            <option selected>To Do</option>
-            <option value="In Progress"></option>
-            <option value="Review"></option>
-            <option value="Done"></option>
-          </datalist>
-    </div>  -->
-    <br>
-
-    <!-- THESE ARE THE OLD FORM BUTTONS -->
-    <!-- <div class="vertical-center">
-      <a class="btn btn-primary" href="index.html" role="button" center>Create</a>
-      <a class="btn btn-primary" href="index.html" role="button" center>Save Changes</a>
-      <a class="btn btn-primary" href="index.html" role="button" center>Cancel</a>
-    </div> -->
-  </div>
-  <!-- <a href="index.html"><button type="submit" class="btn btn-primary">Save Changes</button></a>
-  <a href="index.html"></a><button type="submit" class="btn btn-primary">Cancel</button></a> -->
-</form>
-      </div>
-      <div class="modal-footer">
-        <!-- THESE ARE THE DEFAULT MODAL BUTTONS -->
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-        <button type="button" class="btn btn-primary">Save changes</button> -->
-      <a class="btn btn-primary" href="index.html" role="button" center>Create</a>
-      <!-- commented the last 2 buttons -->
-      <!-- <a class="btn btn-primary" href="index.html" role="button" center>Save Changes</a>
-      <a class="btn btn-primary" href="index.html" role="button" center>Cancel</a> -->
-      </div>
-    </div>
-  </div>
-</div>
-      
-      </a></h3>
-    
-
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Status</label>
+                  <select multiple class="form-control" id="status">
+                    <option>To Do</option>
+                    <option>In Progress</option>
+                    <option>Review</option>
+                    <option>Done</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" type="submit" role="button" center>Create</a>
+          </div>
+        </div>
+      </div>    
+    </div>    
+          
     <br>
     <!-- added content to the cards & flex-wrap -->
     <div class="container">
       <div class="d-flex flex-wrap">
         <div class="card-columns">
           <a role="card">  
-            <div class="card bg-warning">  
+            <div class="card bg">  
               <div class="card-body text-justify"> 
                 <h5 class="card-text">Get a Degree</h5>
                 <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -130,13 +99,13 @@
                 <h6>Assigned To: manoi</h6>
                 <h6>12th December, 2020</h6>
                 <h6>In Progress</h6>
-                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>  
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></i></a> <i class="fa fa-trash	"></i>  
               </div>  
             </div>  
           </a>     
 
           <a role="card">  
-            <div class="card bg-warning">  
+            <div class="card bg">  
               <div class="card-body text-justify"> 
                 <h5 class="card-text">Get Married</h5>
                 <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -145,13 +114,13 @@
                 <h6>Assigned To: manoi</h6>
                 <h6>12th December, 2020</h6>
                 <h6>In Progress</h6>
-                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>  
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <a data-dismiss="card" class="card-text1"><i class="fa fa-trash	"></i></a>  
               </div>  
             </div>  
           </a>    
         
           <a role="card">
-            <div class="card bg-warning">
+            <div class="card bg">
               <div class="card-body text-justify">
                 <h5 class="card-text">Buy a House</h5>
                 <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -166,7 +135,7 @@
           </a>
 
           <a role="card">
-            <div class="card bg-warning">
+            <div class="card bg">
               <div class="card-body text-justify">
                 <h5 class="card-text">Have Children</h5>
                 <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -181,7 +150,7 @@
           </a>
 
           <a role="card">
-            <div class="card bg-warning">
+            <div class="card bg">
               <div class="card-body text-justify">
                 <h5 class="card-text">Go Skydiving</h5>
                 <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -194,12 +163,13 @@
               </div>
             </div>
           </a>
+        </div>    
       </div>
     </div> 
   
-    <!-- Modal for Card Edits -->
+    <!-- Modal for Edit Cards -->
 
-    <div class="modal fade" id="editCard" tabindex="-1"     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editCard" tabindex="-1"     role="dialog" aria-labelledby="editCardLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -208,53 +178,58 @@
               <span aria-hidden="true">&times;</span>
               </button>
           </div>
-    <div class="modal-body">
-    <form class="form-horizontal">
 
-  <div class="container">
-  
-      <div class="form-group">
-    <label for="name">Name:</label>
-  <input type="text" class="form-control" id="name">
-  </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="container">
+          
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name">
+                </div>  
 
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description">
-  </div>
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>  
 
-  <div class="form-group">
-    <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
-    <input type="text" class="form-control" id="AssignedTo">
-  </div>
+                <div class="form-group">
+                  <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
+                  <input type="text" class="form-control" id="AssignedTo">
+                </div>
 
-   <div class="form-group">
-    <label for="name">Due Date:</label>
-  <input type="date" class="form-control" id="DueDate">
-  </div>
+                <div class="form-group">
+                  <label for="name">Due Date:</label>
+                  <input type="date" class="form-control" id="DueDate">
+                </div>
 
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Status</label>
-    <select multiple class="form-control" id="status">
-      <option>To Do</option>
-      <option>In Progress</option>
-      <option>Review</option>
-      <option>Done</option>
-    </select>
-  </div>
-
-      <br>
-      <div class="vertical-center">
-        <a class="btn btn-primary" href="index.html" role="button">Edit</a>
-      </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Status</label>
+                  <select multiple class="form-control" id="status">
+                    <option>To Do</option>
+                    <option>In Progress</option>
+                    <option>Review</option>
+                    <option>Done</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" type="submit" role="button">Edit</a>
+          </div>
+        </div>
+      </div>    
     </div>
 
-        <div class="vertical-center">
-          <a class="btn btn-primary" href="completed.html" role="button">Completed Task</a>
-        </div>
-      </div>
-    </div>  
+    <!--  <div class="vertical-center">
+            <a class="btn btn-primary" href="index.html" role="button">Edit</a>
+          </div>  -->
 
+    <!-- <div class="vertical-center">
+      <a class="btn btn-primary" href="completed.html" role="button">Completed Task</a>
+    </div> -->
+      
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
