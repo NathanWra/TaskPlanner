@@ -116,56 +116,144 @@
     
 
     <br>
-
+    <!-- added content to the cards & flex-wrap -->
     <div class="container">
-      <div class="card-columns">
-        <a href="#" role="button">
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <p class="card-text">Get a Degree <i class="fa fa-check-square"></i> <i class="fa fa-trash	"></i></p>
-            </div>
-          </div>
-        </a>
+      <div class="d-flex flex-wrap">
+        <div class="card-columns">
+          <a role="card">  
+            <div class="card bg-warning">  
+              <div class="card-body text-justify"> 
+                <h5 class="card-text">Get a Degree</h5>
+                <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                labore wes anderson cred nesciunt sapiente ea proident.</p>
+                <h6>Assigned To: manoi</h6>
+                <h6>12th December, 2020</h6>
+                <h6>In Progress</h6>
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>  
+              </div>  
+            </div>  
+          </a>     
 
-        <a href="form.html" role="button">
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <p class="card-text">Get Married <i class="fa fa-check-square"></i>  <i class="fa fa-trash	"></i></p>
-            </div>
-          </div>
-        </a>
+          <a role="card">  
+            <div class="card bg-warning">  
+              <div class="card-body text-justify"> 
+                <h5 class="card-text">Get Married</h5>
+                <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                labore wes anderson cred nesciunt sapiente ea proident.</p>
+                <h6>Assigned To: manoi</h6>
+                <h6>12th December, 2020</h6>
+                <h6>In Progress</h6>
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>  
+              </div>  
+            </div>  
+          </a>    
         
-        <a href="form.html" role="button">
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <p class="card-text">Buy a house <a href="completed.html"><i class="fa fa-check-square"></a></i><i class="fa fa-trash"></i></p>
+          <a role="card">
+            <div class="card bg-warning">
+              <div class="card-body text-justify">
+                <h5 class="card-text">Buy a House</h5>
+                <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                labore wes anderson cred nesciunt sapiente ea proident.</p>
+                <h6>Assigned To: manoi</h6>
+                <h6>12th December, 2020</h6>
+                <h6>In Progress</h6>
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a href="#" role="button">
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <p class="card-text">Have Children <i class="fa fa-check-square"></i>  <i class="fa fa-trash	"></i></p>
+          <a role="card">
+            <div class="card bg-warning">
+              <div class="card-body text-justify">
+                <h5 class="card-text">Have Children</h5>
+                <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                labore wes anderson cred nesciunt sapiente ea proident.</p>
+                <h6>Assigned To: manoi</h6>
+                <h6>12th December, 2020</h6>
+                <h6>In Progress</h6>
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a href="#" role="button">
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <p class="card-text">Go skydiving <i class="fa fa-check-square"></i>  <i class="fa fa-trash	"></i></p>
+          <a role="card">
+            <div class="card bg-warning">
+              <div class="card-body text-justify">
+                <h5 class="card-text">Go Skydiving</h5>
+                <p style="font-size: 12px;">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                labore wes anderson cred nesciunt sapiente ea proident.</p>
+                <h6>Assigned To: manoi</h6>
+                <h6>12th December, 2020</h6>
+                <h6>In Progress</h6>
+                <a data-toggle="modal" class="card-text1" data-target="#editCard"><i class="fa fa-edit"></a></i> <i class="fa fa-trash	"></i>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
       </div>
-      
+    </div> 
+  
+    <!-- Modal for Card Edits -->
+
+    <div class="modal fade" id="editCard" tabindex="-1"     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editCardLabel">Edit Bucket</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+    <div class="modal-body">
+    <form class="form-horizontal">
+
+  <div class="container">
+  
+      <div class="form-group">
+    <label for="name">Name:</label>
+  <input type="text" class="form-control" id="name">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input type="text" class="form-control" id="description">
+  </div>
+
+  <div class="form-group">
+    <label class="form-check-label" for="exampleCheck1">Assigned To:</label>
+    <input type="text" class="form-control" id="AssignedTo">
+  </div>
+
+   <div class="form-group">
+    <label for="name">Due Date:</label>
+  <input type="date" class="form-control" id="DueDate">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Status</label>
+    <select multiple class="form-control" id="status">
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Review</option>
+      <option>Done</option>
+    </select>
+  </div>
 
       <br>
       <div class="vertical-center">
-        <a class="btn btn-primary" href="completed.html" role="button" >Completed Task</a>
+        <a class="btn btn-primary" href="index.html" role="button">Edit</a>
       </div>
     </div>
+
+        <div class="vertical-center">
+          <a class="btn btn-primary" href="completed.html" role="button">Completed Task</a>
+        </div>
+      </div>
+    </div>  
 
     <!-- Optional JavaScript; choose one of the two! -->
 

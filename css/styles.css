@@ -16,11 +16,17 @@ body > h3 > i {
   color: rgb(67, 17, 114);
   font-weight: 600;
 }
+/* added pointer to card icon */
+.card-text1 {
+  color: rgb(67, 17, 114);
+  font-weight: 600;
+  cursor: pointer;
+}
 
 .vertical-center {
   margin: 0;
-  position: absolute;
-  bottom: 10%;
+  position: relative;
+  bottom: 5%;
   /* left: 50%;
   right: 50%; */
   -ms-transform: translateY(-50%);
