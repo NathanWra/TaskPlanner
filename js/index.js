@@ -39,14 +39,14 @@ newBucketForm.addEventListener("submit", (event) => {
     errorMessage.style.display = "none";
   }
   if (!validFormFieldInput(newBucketAssignedToVal)) {
-    errorMessage.innerHTML = "Invalid description input";
+    errorMessage.innerHTML = "Invalid assigned to input";
     errorMessage.style.display = "block";
     newBucketAssignedTo.style.borderColor = "red";
   } else {
     errorMessage.style.display = "none";
   }
   if (!validFormFieldInput(newBucketDueDateVal)) {
-    errorMessage.innerHTML = "Invalid description input";
+    errorMessage.innerHTML = "Invalid due date input";
     errorMessage.style.display = "block";
     newBucketDueDate.style.borderColor = "red";
   } else {
@@ -97,14 +97,14 @@ editBucketForm.addEventListener("submit", (event) => {
     errorMessage.style.display = "none";
   }
   if (!validFormFieldInput(editBucketAssignedToVal)) {
-    errorMessage.innerHTML = "Invalid description input";
+    errorMessage.innerHTML = "Invalid assigned to input";
     errorMessage.style.display = "block";
     editBucketAssignedTo.style.borderColor = "red";
   } else {
     errorMessage.style.display = "none";
   }
   if (!validFormFieldInput(editBucketDueDateVal)) {
-    errorMessage.innerHTML = "Invalid description input";
+    errorMessage.innerHTML = "Invalid due date input";
     errorMessage.style.display = "block";
     editBucketDueDate.style.borderColor = "red";
   } else {
