@@ -28,29 +28,29 @@ newBucketForm.addEventListener("submit", (event) => {
     errorMessage.innerHTML = "Invalid name input";
     errorMessage.style.display = "block";
     newBucketNameInput.style.borderColor = "red";
-  } else {
-    errorMessage.style.display = "none";
-  }
-  if (!validFormFieldInput(newBucketDescriptionVal)) {
+    newBucketNameInput.focus();
+  } else if (!validFormFieldInput(newBucketDescriptionVal)) {
     errorMessage.innerHTML = "Invalid description input";
     errorMessage.style.display = "block";
     newBucketDescription.style.borderColor = "red";
-  } else {
-    errorMessage.style.display = "none";
-  }
-  if (!validFormFieldInput(newBucketAssignedToVal)) {
+    newBucketDescription.focus();
+  } else if (!validFormFieldInput(newBucketAssignedToVal)) {
     errorMessage.innerHTML = "Invalid assigned to input";
     errorMessage.style.display = "block";
     newBucketAssignedTo.style.borderColor = "red";
-  } else {
-    errorMessage.style.display = "none";
-  }
-  if (!validFormFieldInput(newBucketDueDateVal)) {
+    newBucketAssignedTo.focus();
+  } else if (!validFormFieldInput(newBucketDueDateVal)) {
     errorMessage.innerHTML = "Invalid due date input";
     errorMessage.style.display = "block";
     newBucketDueDate.style.borderColor = "red";
+    newBucketDueDate.focus();
   } else {
-    errorMessage.style.display = "none";
+    errorMessage.innerHTML = "Perfect!";
+    errorMessage.style.display = "block";
+    newBucketNameInput.style.borderColor = "";
+    newBucketDescription.style.borderColor = "";
+    newBucketAssignedTo.style.borderColor = "";
+    newBucketDueDate.style.borderColor = "";
   }
 });
 
@@ -112,7 +112,6 @@ editBucketForm.addEventListener("submit", (event) => {
   }
 });
 
-alert(name.value);
 function validFormFieldInput(data) {
   return data !== null && data !== "";
 }
