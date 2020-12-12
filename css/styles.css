@@ -5,11 +5,21 @@ body {
   background-color: rgb(209, 238, 248);
 }
 
-/* centered heading */
+/* centered heading & added shadow to text */
 
-h1,
+h1 {
+  text-align: center;
+  color: rgb(240, 214, 167);
+  font: outline;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
 h3 {
   text-align: center;
+  color: lightyellow;
+  font: outline;
+  font-family: "dancing script", cursive;
+  text-shadow: 1px 1px 2px brown, 0 0 1em gold, 0 0 0.2em gold;
 }
 
 /* changed btn text color */
@@ -21,7 +31,7 @@ h3 {
 /* changed card text color */
 
 .card-text {
-  color: rgb(67, 17, 114);
+  color: blue;
   font-weight: 600;
 }
 
@@ -55,4 +65,8 @@ h3 {
 .modal-header {
   background-color: rgb(46, 49, 236);
   color: white;
+}
+
+.form-control {
+  font-size: small;
 }

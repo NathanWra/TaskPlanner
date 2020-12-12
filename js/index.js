@@ -10,7 +10,7 @@ newBucketForm.addEventListener("submit", (event) => {
   const newBucketNameInput = document.querySelector("#newBucketNameInput");
   const newBucketDescription = document.querySelector("#newBucketDescription");
   const newBucketAssignedTo = document.querySelector("#newBucketAssignedTo");
-  const newBucketDueDate = document.querySelector("#newBucketDueDate");
+  // const newBucketDueDate = document.querySelector("#newBucketDueDate");
   const newBucketStatus = document.querySelector("#newBucketStatus");
   const errorMessage = document.querySelector("#alertMessage");
 
@@ -22,32 +22,35 @@ newBucketForm.addEventListener("submit", (event) => {
   const newBucketNameVal = newBucketNameInput.value;
   const newBucketDescriptionVal = newBucketDescription.value;
   const newBucketAssignedToVal = newBucketAssignedTo.value;
-  const newBucketDueDateVal = newBucketDueDate.value;
+  // const newBucketDueDateVal = newBucketDueDate.value;
   const newBucketStatusVal = newBucketStatus.value;
+  const dateFld = document.getElementById("newBucketDueDate");
+  const todayDt = new Date();
+  const valueDt = dateFld.value.trim() ? new Date(dateFld.value) : null;
+
   if (!validFormFieldInput(newBucketNameVal)) {
-    errorMessage.innerHTML = "Please enter a valid task name";
+    errorMessage.innerHTML = "Please enter a valid task name.";
     errorMessage.style.display = "block";
     newBucketNameInput.style.borderColor = "red";
     newBucketNameInput.focus();
   } else if (!validFormFieldInput(newBucketDescriptionVal)) {
-    errorMessage.innerHTML = "Please enter a proper task description";
+    errorMessage.innerHTML = "Please enter a proper task description.";
     errorMessage.style.display = "block";
     newBucketDescription.style.borderColor = "red";
     newBucketDescription.focus();
   } else if (!validFormFieldInput(newBucketAssignedToVal)) {
-    errorMessage.innerHTML = "Please enter a person's name";
+    errorMessage.innerHTML = "Please enter a person's name.";
     errorMessage.style.display = "block";
     newBucketAssignedTo.style.borderColor = "red";
     newBucketAssignedTo.focus();
-  } else if (!validFormFieldInput(newBucketDueDateVal)) {
-    errorMessage.innerHTML = "Please choose a valid date";
+  } //else if (!validFormFieldInput(newBucketDueDateVal)) {
+  else if (dateFld.value == null || valueDt < todayDt) {
+    errorMessage.innerHTML = "Please choose a valid date.";
     errorMessage.style.display = "block";
     newBucketDueDate.style.borderColor = "red";
     newBucketDueDate.focus();
-
-    // Comment status for now
   } else if (!validFormFieldInput(newBucketStatusVal)) {
-    errorMessage.innerHTML = "Please select one";
+    errorMessage.innerHTML = "Please select one.";
     errorMessage.style.display = "block";
     newBucketStatus.style.borderColor = "red";
     newBucketStatus.focus();
@@ -59,14 +62,15 @@ newBucketForm.addEventListener("submit", (event) => {
     newBucketAssignedTo.style.borderColor = "";
     newBucketDueDate.style.borderColor = "";
     newBucketStatus.style.borderColor = "";
+    return todayDt;
   }
   // something wrong with the date logic
 
   // const dateFld = document.getElementById("newBucketDueDate");
   // const todayDt = new Date();
   // const valueDt = dateFld.value.trim() ? new Date(dateFld.value) : null;
-  // if (dateFld.value == null || valueDt < todayDt) {
-  //   errorMessage.innerHTML = "Invalid due date input";
+  //   else if (dateFld.value == null || valueDt < todayDt) {
+  //   errorMessage.innerHTML = "Please choose a valid date";
   //   errorMessage.style.display = "block";
   //   newBucketDueDate.style.borderColor = "red";
   //   newBucketDueDate.focus();
@@ -139,14 +143,21 @@ newBucketForm.addEventListener("submit", (event) => {
 
 // added function to correct blankspace bug
 
-function validFormFieldInput(data) {
-  if (data.trim().length === 0) {
-    return false;
-  } else {
-    return true;
-  }
-}
+// function validFormFieldInput(data) {
+//   if (data.trim().length === 0) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
 
 function validFormFieldInput(data) {
-  return data !== null && data !== "";
+  {
+    if (data.trim().length === 0) {
+      return false;
+    } else {
+      return true;
+    }
+    return data !== null && data !== "";
+  }
 }
