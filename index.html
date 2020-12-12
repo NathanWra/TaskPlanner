@@ -28,6 +28,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -60,7 +66,9 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="newBucketLabel">New Bucket</h5>
+            <h5 class="modal-title" id="newBucketLabel">
+              <i class="fa fa-shopping-basket"></i> New Bucket
+            </h5>
             <button
               type="button"
               style="color: white"
@@ -111,21 +119,21 @@
                       type="date"
                       class="form-control"
                       id="newBucketDueDate"
-                      name="trip-newBucketDueDate"
-                      value="Today"
-                      min="2020-12-12"
-                      max="2021-12-31"
+                      name="newBucketDueDate"
+                      value="todayDt"
+                      min="todayDt"
+                      max="2030-12-31"
                     />
                   </div>
 
                   <div class="form-group col-6">
-                    <label for="priority">Status</label>
+                    <label for="priority">Status:</label>
                     <select class="form-control" id="newBucketStatus">
                       <option disabled selected value>Select an option</option>
-                      <option>TODO</option>
-                      <option>IN PROGRESS</option>
-                      <option>REVIEW</option>
-                      <option>DONE</option>
+                      <option style="color: red">TODO</option>
+                      <option style="color: gold">IN PROGRESS</option>
+                      <option style="color: green">REVIEW</option>
+                      <option style="color: blue">DONE</option>
                     </select>
                   </div>
 
@@ -198,7 +206,13 @@
                   data-target="#editBucket"
                   ><i class="fa fa-edit"></i
                 ></a>
-                <i class="fa fa-trash"></i>
+                <a
+                  data-toggle="modal"
+                  class="card-text1"
+                  data-target="#editBucket"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </a>
               </div>
             </div>
           </a>
@@ -221,7 +235,13 @@
                   data-target="#editBucket"
                   ><i class="fa fa-edit"></i
                 ></a>
-                <i class="fa fa-trash"></i>
+                <a
+                  data-toggle="modal"
+                  class="card-text1"
+                  data-target="#editBucket"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </a>
               </div>
             </div>
           </a>
@@ -244,7 +264,13 @@
                   data-target="#editBucket"
                   ><i class="fa fa-edit"></i
                 ></a>
-                <i class="fa fa-trash"></i>
+                <a
+                  data-toggle="modal"
+                  class="card-text1"
+                  data-target="#editBucket"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </a>
               </div>
             </div>
           </a>
@@ -267,7 +293,13 @@
                   data-target="#editBucket"
                   ><i class="fa fa-edit"></i
                 ></a>
-                <i class="fa fa-trash"></i>
+                <a
+                  data-toggle="modal"
+                  class="card-text1"
+                  data-target="#editBucket"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </a>
               </div>
             </div>
           </a>
@@ -290,7 +322,13 @@
                   data-target="#editBucket"
                   ><i class="fa fa-edit"></i
                 ></a>
-                <i class="fa fa-trash"></i>
+                <a
+                  data-toggle="modal"
+                  class="card-text1"
+                  data-target="#editBucket"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </a>
               </div>
             </div>
           </a>
