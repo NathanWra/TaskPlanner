@@ -11,7 +11,7 @@ h1 {
   text-align: center;
   color: rgb(240, 214, 167);
   font: outline;
-  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px darkblue, 0 0 2em blue, 0 0 0.4em blue;
 }
 
 h3 {
@@ -19,7 +19,7 @@ h3 {
   color: lightyellow;
   font: outline;
   font-family: "dancing script", cursive;
-  text-shadow: 1px 1px 2px brown, 0 0 1em gold, 0 0 0.2em gold;
+  text-shadow: 1px 1px 2px brown, 0 0 2em gold, 0 0 0.4em gold;
 }
 
 /* changed btn text color */
