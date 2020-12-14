@@ -30,16 +30,19 @@ newBucketForm.addEventListener("submit", (event) => {
 
   if (!validFormFieldInput(newBucketNameVal)) {
     errorMessage.innerHTML = "Please enter a valid task name.";
+    errorMessage.style.color = "red";
     errorMessage.style.display = "block";
     newBucketNameInput.style.borderColor = "red";
     newBucketNameInput.focus();
   } else if (!validFormFieldInput(newBucketDescriptionVal)) {
     errorMessage.innerHTML = "Please enter a proper task description.";
+    errorMessage.style.color = "red";
     errorMessage.style.display = "block";
     newBucketDescription.style.borderColor = "red";
     newBucketDescription.focus();
   } else if (!validFormFieldInput(newBucketAssignedToVal)) {
     errorMessage.innerHTML = "Please enter a person's name.";
+    errorMessage.style.color = "red";
     errorMessage.style.display = "block";
     newBucketAssignedTo.style.borderColor = "red";
     newBucketAssignedTo.focus();
@@ -48,16 +51,19 @@ newBucketForm.addEventListener("submit", (event) => {
     newBucketDueDateVal < newBucketDateToday
   ) {
     errorMessage.innerHTML = "Please choose a valid date.";
+    errorMessage.style.color = "red";
     errorMessage.style.display = "block";
     newBucketDueDate.style.borderColor = "red";
     newBucketDueDate.focus();
   } else if (!validFormFieldInput(newBucketStatusVal)) {
     errorMessage.innerHTML = "Please select one.";
+    errorMessage.style.color = "red";
     errorMessage.style.display = "block";
     newBucketStatus.style.borderColor = "red";
     newBucketStatus.focus();
   } else {
     errorMessage.innerHTML = "Well Done. Great Job!";
+    errorMessage.style.color = "green";
     errorMessage.style.display = "block";
     newBucketNameInput.style.borderColor = "";
     newBucketDescription.style.borderColor = "";
@@ -68,12 +74,9 @@ newBucketForm.addEventListener("submit", (event) => {
 });
 
 function validFormFieldInput(data) {
-  {
-    if (data.trim().length === 0) {
-      return false;
-    } else {
-      return true;
-    }
-    return data !== null && data !== "";
+  if (data.trim().length === 0) {
+    return false;
+  } else {
+    return true;
   }
 }
