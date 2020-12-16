@@ -7,7 +7,7 @@ body {
       rgba(22, 19, 226, 0.2),
       rgba(22, 19, 226, 0.2)
     ),
-    url(bucketImages/beachBuckets.jpg);
+    url(../bucketImages/beachBuckets.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -84,7 +84,7 @@ h3 {
 
 .card {
   background-color: rgb(245, 220, 82);
-  background-image: url(bucketImages/fullBucket.webp);
+  background-image: url(../bucketImages/fullBucket.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -97,7 +97,7 @@ h3 {
       rgba(200, 142, 16, 0.6),
       rgba(200, 142, 16, 0.6)
     ),
-    url(bucketImages/goldenBucket.jpg);
+    url(../bucketImages/goldenBucket.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -108,7 +108,7 @@ h3 {
 .modal-header {
   background-color: rgb(46, 49, 236);
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(239, 243, 12, 0.2)),
-    url(bucketImages/horizon.jpg);
+    url(../bucketImages/horizon.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
