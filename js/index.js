@@ -1,3 +1,6 @@
+//outside the class, create an instance of BookManager
+const bucketManager = new BucketManager();
+
 // Select the New Bucket Form
 const newBucketForm = document.querySelector("#newBucketForm");
 
@@ -12,7 +15,7 @@ newBucketForm.addEventListener("submit", (event) => {
   const newBucketAssignedTo = document.querySelector("#newBucketAssignedTo");
   const newBucketDueDate = document.getElementById("newBucketDueDate");
   const newBucketDateToday = new Date();
-  const newBucketStatus = document.querySelector("#newBucketStatus");
+  // const newBucketStatus = document.querySelector("#newBucketStatus");
   const errorMessage = document.querySelector("#alertMessage");
 
   /*
@@ -23,7 +26,7 @@ newBucketForm.addEventListener("submit", (event) => {
   const newBucketNameVal = newBucketNameInput.value;
   const newBucketDescriptionVal = newBucketDescription.value;
   const newBucketAssignedToVal = newBucketAssignedTo.value;
-  const newBucketStatusVal = newBucketStatus.value;
+  // const newBucketStatusVal = newBucketStatus.value;
   const newBucketDueDateVal = newBucketDueDate.value.trim()
     ? new Date(newBucketDueDate.value)
     : null;
@@ -55,12 +58,12 @@ newBucketForm.addEventListener("submit", (event) => {
     errorMessage.style.display = "block";
     newBucketDueDate.style.borderColor = "red";
     newBucketDueDate.focus();
-  } else if (!validFormFieldInput(newBucketStatusVal)) {
-    errorMessage.innerHTML = "Please select one.";
-    errorMessage.style.color = "red";
-    errorMessage.style.display = "block";
-    newBucketStatus.style.borderColor = "red";
-    newBucketStatus.focus();
+    // } else if (!validFormFieldInput(newBucketStatusVal)) {
+    //   errorMessage.innerHTML = "Please select one.";
+    //   errorMessage.style.color = "red";
+    //   errorMessage.style.display = "block";
+    //   newBucketStatus.style.borderColor = "red";
+    //   newBucketStatus.focus();
   } else {
     errorMessage.innerHTML = "Well Done. Great Job!";
     errorMessage.style.color = "green";
@@ -69,8 +72,25 @@ newBucketForm.addEventListener("submit", (event) => {
     newBucketDescription.style.borderColor = "";
     newBucketAssignedTo.style.borderColor = "";
     newBucketDueDate.style.borderColor = "";
-    newBucketStatus.style.borderColor = "";
+    // newBucketStatus.style.borderColor = "";
   }
+
+  bucketManager.addBucket(
+    newBucketNameVal,
+    newBucketDescriptionVal,
+    newBucketAssignedToVal,
+    newBucketDueDateVal
+    // newBucketStatusVal
+  );
+
+  // Render the tasks
+  bucketManager.displayBucket();
+
+  newBucketNameInput.value = "";
+  newBucketDescription.value = "";
+  newBucketAssignedTo.value = "";
+  newBucketDueDate.value = "";
+  // newBucketStatus.value = "";
 });
 
 function validFormFieldInput(data) {
@@ -80,3 +100,5 @@ function validFormFieldInput(data) {
     return true;
   }
 }
+
+console.log(bucketManager);
