@@ -120,8 +120,8 @@
                       class="form-control"
                       id="newBucketDueDate"
                       name="newBucketDueDate"
-                      value="todayDt"
-                      min="todayDt"
+                      value="date"
+                      min="date"
                       max="2030-12-31"
                     />
                   </div>
@@ -130,10 +130,11 @@
                     <label for="priority">Status:</label>
                     <select class="form-control" id="newBucketStatus">
                       <option disabled selected value>Select an option</option>
-                      <option style="color: red">TODO</option>
-                      <option style="color: gold">IN PROGRESS</option>
-                      <option style="color: green">REVIEW</option>
-                      <option style="color: blue">DONE</option>
+                      <option class="badge badge-primary">TODO</option>
+                      <option class="badge badge-secondary">IN-PROGRESS</option>
+                      <option class="badge badge-danger">PAST DUE</option>
+                      <option class="badge badge-info">REVIEW</option>
+                      <option class="badge badge-success">DONE</option>
                     </select>
                   </div>
 
@@ -184,11 +185,11 @@
 
     <!-- Bucket cards start here -->
 
-    <div class="container">
-      <div class="d-flex flex-wrap">
+    <div class="container justify-content">
+      <div class="d-flex flex-wrap" id="bucketListDiv">
         <!-- <div class="card-rows"> -->
         <div class="card-columns">
-          <a role="card">
+          <div role="card">
             <div class="card shadow p2 mb-4 bg m-2">
               <div class="card-body text-justify">
                 <h5 class="card-text">Get a Degree</h5>
@@ -225,160 +226,11 @@
                 </button>
               </div>
             </div>
-          </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <a role="card">
-            <div class="card shadow p2 mb-4 bg m-2">
-              <div class="card-body text-justify">
-                <h5 class="card-text">Get Married</h5>
-                <h6>
-                  Search for the most beautiful woman in the world. Marry her
-                  sometime in the New Year of 2021.
-                </h6>
-                <h6><small>Assigned To:</small> manoi</h6>
-                <div class="d-flex w-100 mb-3 justify-content-between">
-                  <small
-                    >Due: <strong><em>01-01-2021</em></strong></small
-                  >
-                  <small class="badge badge-primary">TODO</small>
-                </div>
-
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-dismiss="card"
-                  aria-label="Close"
-                >
-                  <i class="fa fa-trash-o"></i>
-                </button>
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-toggle="modal"
-                  data-target="#newBuckett"
-                >
-                  <i class="fa fa-edit"></i>
-                </button>
-              </div>
-            </div>
-          </a>
-
-          <a role="card">
-            <div class="card shadow p2 mb-4 bg m-2">
-              <div class="card-body text-justify">
-                <h5 class="card-text">Buy a House</h5>
-                <h6>
-                  Look for a decent house with 6 bedrooms, 4TB, a 4 car-garage,
-                  a big loan, a mid-size pool and a childrens' mini playground.
-                  Buy as soon as posible.
-                </h6>
-                <h6><small>Assigned To:</small> manoi</h6>
-                <div class="d-flex w-100 mb-3 justify-content-between">
-                  <small
-                    >Due: <strong><em>30-12-2020</em></strong></small
-                  >
-                  <small class="badge badge-info">REVIEW</small>
-                </div>
-
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-dismiss="card"
-                  aria-label="Close"
-                >
-                  <i class="fa fa-trash-o"></i>
-                </button>
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-toggle="modal"
-                  data-target="#newBuckett"
-                >
-                  <i class="fa fa-edit"></i>
-                </button>
-              </div>
-            </div>
-          </a>
-
-          <a role="card">
-            <div class="card shadow p2 mb-4 bg m-2">
-              <div class="card-body text-justify">
-                <h5 class="card-text">Have Children</h5>
-                <h6>
-                  Get Married and create a big family. Have a half-dozen kids.
-                </h6>
-                <h6><small>Assigned To:</small> manoi</h6>
-                <div class="d-flex w-100 mb-3 justify-content-between">
-                  <small
-                    >Due: <strong><em>01-10-2020</em></strong></small
-                  >
-                  <small class="badge badge-danger">PAST DUE</small>
-                </div>
-
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-dismiss="card"
-                  aria-label="Close"
-                >
-                  <i class="fa fa-trash-o"></i>
-                </button>
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-toggle="modal"
-                  data-target="#newBuckett"
-                >
-                  <i class="fa fa-edit"></i>
-                </button>
-              </div>
-            </div>
-          </a>
-
-          <a role="card">
-            <div class="card shadow p2 mb-4 bg m-2">
-              <div class="card-body text-justify">
-                <h5 class="card-text">Go Skydiving</h5>
-                <h6>
-                  Search for the most beautiful woman in the world. Marry her
-                  sometime in the New Year of 2021.
-                </h6>
-                <h6><small>Assigned To:</small> Nathan</h6>
-                <div class="d-flex w-100 mb-3 justify-content-between">
-                  <small
-                    >Due: <strong><em>01-01-2021</em></strong></small
-                  >
-                  <small class="badge badge-success">DONE</small>
-                </div>
-
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-dismiss="card"
-                  aria-label="Close"
-                >
-                  <i class="fa fa-trash-o"></i>
-                </button>
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-toggle="modal"
-                  data-target="#newBuckett"
-                >
-                  <i class="fa fa-edit"></i>
-                </button>
-              </div>
-            </div>
-          </a>
-          
     <!-- Bucket cards end here -->
 
     <!-- JavaScript: jQuery, Popper.js, and Bootstrap JS -->
