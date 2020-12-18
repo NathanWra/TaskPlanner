@@ -1,4 +1,4 @@
-//outside the class, create an instance of BookManager
+//outside the class, create an instance of TaslManager
 const bucketManager = new BucketManager();
 
 // Select the New Bucket Form
@@ -85,6 +85,7 @@ newBucketForm.addEventListener("submit", (event) => {
 
   // Render the tasks
   bucketManager.displayBucket();
+  $("#newBucket").modal("hide");
 
   newBucketNameInput.value = "";
   newBucketDescription.value = "";

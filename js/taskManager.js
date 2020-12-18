@@ -6,19 +6,21 @@ const createBucketHtml = (
   newBucketStatusVal,
   newBucketDueDateVal
 ) => `
-    <li class="list-group-item">
-      <div class="card shadow p2 mb-4 bg m-2">
-        <div class="card-body text-justify" background-image: url(fullBucket.webp)">
-          <h5 class="card-text">${newBucketNameVal}</h5>
-          <h6>${newBucketDescriptionVal}</h6>
-          <h6>${newBucketAssignedToVal}</h6>
-          <div class="d-flex w-100 mb-3 justify-content-between">
-            <small>Due: ${newBucketDueDateVal}</small>
-            <small class="badge badge-danger">${newBucketStatusVal}</small>
+    
+      <div role="card">
+        <div class="card shadow p2 mb-4 bg m-2">
+          <div class="card-body text-justify" background-image: url(fullBucket.webp)">
+            <h5 class="card-text">${newBucketNameVal}</h5>
+            <h6>${newBucketDescriptionVal}</h6>
+            <h6><small>Assigned To:</small>${newBucketAssignedToVal}</h6>
+            <div class="d-flex w-100 mb-3 justify-content-between">
+              <small>Due: <strong><em>${newBucketDueDateVal}</strong></em></small>
+              <small class="badge badge-primary">${newBucketStatusVal}</small>
+            </div>
           </div>
         </div>
       </div>
-    </li>
+    
 `;
 
 // Create a TaskManager class
@@ -53,7 +55,7 @@ class BucketManager {
   // function to display the bucket on the browser
   // to render
   displayBucket() {
-    const BucketsHtmlList = []; // initialize an array to store the tasks
+    const bucketsHtmlList = []; // initialize an array to store the tasks
 
     // Loops through buckets array objects to store in BucketsHtmlList
     for (let i = 0; i < this.buckets.length; i++) {
@@ -61,7 +63,7 @@ class BucketManager {
       const bucket = this.buckets[i];
 
       // Format the date
-      const date = new Date(task.dueDate);
+      const date = new Date(bucket.newBucketdueDate);
       const formattedDate =
         date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
