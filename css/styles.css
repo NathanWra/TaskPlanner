@@ -3,11 +3,10 @@
 html,
 body {
   background-color: rgb(209, 238, 248);
-  background-image: linear-gradient(
+  background-image: /*linear-gradient(
       rgba(22, 19, 226, 0.2),
       rgba(22, 19, 226, 0.2)
-    ),
-    url(../bucketImages/beachBuckets.jpg);
+    ), */ url(../bucketImages/beachBuckets.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -209,24 +209,37 @@
                   <small class="badge badge-success">DONE</small>
                 </div>
 
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-dismiss="card"
-                  aria-label="Close"
-                >
-                  <i class="fa fa-trash-o"></i>
-                </button>
-                <button
-                  type="button"
-                  style="color: black(67, 17, 114)"
-                  class="close"
-                  data-toggle="modal"
-                  data-target="#newBuckett"
-                >
-                  <i class="fa fa-edit"></i>
-                </button>
+                <!-- <div class="row float-right">-->
+                <div class="card-columns-footer">
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-dismiss="card"
+                    aria-label="Close"
+                  >
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-dismiss="card"
+                    aria-label="Close"
+                  >
+                    <i class="fa fa-check-square-o"></i>
+                  </button>
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-toggle="modal"
+                    data-target="#editBucket"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <!-- </div> -->
+                </div>
               </div>
             </div>
           </div>
@@ -235,6 +248,139 @@
     </div>
 
     <!-- Bucket cards end here -->
+
+    <br />
+
+    <!-- Modal for editing Task start here -->
+
+    <div
+      class="modal fade"
+      id="editBucket"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editBucketLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editBucketLabel">
+              <i class="fa fa-pencil"></i> Edit Bucket
+            </h5>
+            <button
+              type="button"
+              style="color: white"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="container">
+            <div class="modal-body">
+              <form id="editBucketForm" class="form-horizontal">
+                <div class="form-group">
+                  <label for="editBucketNameInput">Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="newBucketNameInput"
+                    placeholder="Task name here"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="editBucketDescription">Description:</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="editBucketDescription"
+                    placeholder="Task description here"
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="newBucketAssignedTo">Assigned To:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editBucketAssignedTo"
+                    placeholder="Name of assignee here"
+                  />
+                </div>
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label for="editBucketDueDate">Due Date:</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="editBucketDueDate"
+                      name="editBucketDueDate"
+                      value="date"
+                      min="date"
+                      max="2030-12-31"
+                      format="yyyy-MM-dd"
+                    />
+                  </div>
+
+                  <div class="form-group col-6">
+                    <label for="priority">Status:</label>
+                    <select class="form-control" id="editBucketStatus">
+                      <option disabled selected value>Select an option</option>
+                      <option class="badge badge-primary">TODO</option>
+                      <option class="badge badge-secondary">IN-PROGRESS</option>
+                      <option class="badge badge-danger">PAST DUE</option>
+                      <option class="badge badge-info">REVIEW</option>
+                      <option class="badge badge-success">DONE</option>
+                    </select>
+                  </div>
+
+                  <!-- Comment priority dropdown for now -->
+
+                  <!-- <div class="form-group col-6">
+                    <label for="priority">Priority</label>
+                    <select class="form-control" id="newTaskPriority">
+                      <option disabled selected value>Select an option</option>
+                      <option style="color: red">High</option>
+                      <option style="color: gold">Medium</option>
+                      <option style="color: yellowgreen">Low</option>
+                    </select>
+                    <div
+                      id="priorityAlertMessage"
+                      style="display: none"
+                      class="alert alert-danger"
+                      role="alert"
+                    >
+                      Error message
+                    </div>
+                  </div> -->
+                </div>
+
+                <div
+                  id="alertMessage"
+                  style="display: none"
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Error message
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary float-right">
+                    Save Changes
+                  </button>
+                  <!-- <button type="submit" class="btn btn-primary float-right">
+                    Cancel
+                  </button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Task editing end here -->
 
     <!-- JavaScript: jQuery, Popper.js, and Bootstrap JS -->
 
