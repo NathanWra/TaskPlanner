@@ -217,6 +217,7 @@
                     class="close"
                     data-dismiss="card"
                     aria-label="Close"
+                    data-button-type="delete"
                   >
                     <i class="fa fa-trash-o"></i>
                   </button>
@@ -226,6 +227,7 @@
                     class="close"
                     data-dismiss="card"
                     aria-label="Close"
+                    data-button-type="markDone"
                   >
                     <i class="fa fa-check-square-o"></i>
                   </button>
@@ -235,6 +237,8 @@
                     class="close"
                     data-toggle="modal"
                     data-target="#editBucket"
+                    data-button-type="edit"
+                    value="id"
                   >
                     <i class="fa fa-edit"></i>
                   </button>
@@ -404,5 +408,14 @@
 
     <script src="js/taskManager.js"></script>
     <script src="js/index.js"></script>
+    <script>
+      $(".close").click(function () {
+        const buttonType = $(this).attr("data-button-type");
+        const buttonValue = $(this).value;
+        console.log(buttonType);
+        console.log(buttonValue);
+        console.log("hello world");
+      });
+    </script>
   </body>
 </html>

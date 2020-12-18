@@ -73,25 +73,25 @@ newBucketForm.addEventListener("submit", (event) => {
     newBucketAssignedTo.style.borderColor = "";
     newBucketDueDate.style.borderColor = "";
     // newBucketStatus.style.borderColor = "";
+
+    bucketManager.addBucket(
+      newBucketNameVal,
+      newBucketDescriptionVal,
+      newBucketAssignedToVal,
+      newBucketDueDateVal
+      // newBucketStatusVal
+    );
+
+    // Render the tasks
+    bucketManager.displayBucket();
+    $("#newBucket").modal("hide");
+
+    newBucketNameInput.value = "";
+    newBucketDescription.value = "";
+    newBucketAssignedTo.value = "";
+    newBucketDueDate.value = "";
+    // newBucketStatus.value = "";
   }
-
-  bucketManager.addBucket(
-    newBucketNameVal,
-    newBucketDescriptionVal,
-    newBucketAssignedToVal,
-    newBucketDueDateVal
-    // newBucketStatusVal
-  );
-
-  // Render the tasks
-  bucketManager.displayBucket();
-  $("#newBucket").modal("hide");
-
-  newBucketNameInput.value = "";
-  newBucketDescription.value = "";
-  newBucketAssignedTo.value = "";
-  newBucketDueDate.value = "";
-  // newBucketStatus.value = "";
 });
 
 function validFormFieldInput(data) {
