@@ -18,6 +18,35 @@ const createBucketHtml = (
               <small>Due: <strong><em>${newBucketDueDateVal}</strong></em></small>
               <small class="badge badge-primary"> ${newBucketStatusVal}</small>
             </div>
+            <div class="card-columns-footer">
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-dismiss="card"
+                    aria-label="Close"
+                  >
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-dismiss="card"
+                    aria-label="Close"
+                  >
+                    <i class="fa fa-check-square-o"></i>
+                  </button>
+                  <button
+                    type="button"
+                    style="color: black(67, 17, 114)"
+                    class="close"
+                    data-toggle="modal"
+                    data-target="#editBucket"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </div>
           </div>
         </div>
       </div>
