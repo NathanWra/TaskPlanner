@@ -1,10 +1,11 @@
 // Create the HTML for a task
 const createBucketHtml = (
+  id,
   newBucketNameVal,
   newBucketDescriptionVal,
   newBucketAssignedToVal,
-  newBucketStatusVal,
-  newBucketDueDateVal
+  newBucketDueDateVal,
+  newBucketStatusVal
 ) => `
     
       <div role="card">
@@ -41,11 +42,11 @@ class BucketManager {
     const bucket = {
       // Increment the currentId property
       id: this.currentId++,
-      newBucketName,
-      newBucketDescription,
-      newBucketAssignedTo,
-      newBucketDueDate,
-      newBucketStatus: "TODO",
+      name: newBucketName,
+      description: newBucketDescription,
+      assignedTo: newBucketAssignedTo,
+      dueDate: newBucketDueDate,
+      status: "TODO",
     };
 
     // Push the task to the tasks property
@@ -63,7 +64,7 @@ class BucketManager {
       const bucket = this.buckets[i];
 
       // Format the date
-      const date = new Date(bucket.newBucketdueDate);
+      const date = new Date(bucket.dueDate);
       const formattedDate =
         date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
@@ -90,4 +91,4 @@ class BucketManager {
 
 // Create the bucketsHtml by joining each item in the bucketsHtmlList
 // with a new line in between each item.
-const bucketsHtml = bucketsHtmlList.join("\n");
+// const bucketsHtml = bucketsHtmlList.join("\n");
