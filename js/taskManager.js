@@ -25,6 +25,8 @@ const createBucketHtml = (
                     class="close"
                     data-dismiss="card"
                     aria-label="Close"
+                    data-button-type="delete"
+                    value="${id}"
                   >
                     <i class="fa fa-trash-o"></i>
                   </button>
@@ -34,6 +36,8 @@ const createBucketHtml = (
                     class="close"
                     data-dismiss="card"
                     aria-label="Close"
+                    data-button-type="markDone"
+                    value="${id}"
                   >
                     <i class="fa fa-check-square-o"></i>
                   </button>
@@ -43,6 +47,8 @@ const createBucketHtml = (
                     class="close"
                     data-toggle="modal"
                     data-target="#editBucket"
+                    data-button-type="edit"
+                    value="${id}"
                   >
                     <i class="fa fa-edit"></i>
                   </button>
@@ -50,7 +56,6 @@ const createBucketHtml = (
           </div>
         </div>
       </div>
-    
 `;
 
 // Create a TaskManager class
@@ -68,6 +73,10 @@ class BucketManager {
     newBucketAssignedTo,
     newBucketDueDate
   ) {
+    console.log("newBucketName: " + newBucketName);
+    console.log("newBucketDescription: " + newBucketDescription);
+    console.log("newBucketAssignedTo: " + newBucketAssignedTo);
+    console.log("newBucketDueDate: " + newBucketDueDate);
     const bucket = {
       // Increment the currentId property
       id: this.currentId++,
