@@ -13,10 +13,10 @@ const createBucketHtml = (
           <div class="card-body text-justify" background-image: url(fullBucket.webp)">
             <h5 class="card-text">${newBucketNameVal}</h5>
             <h6>${newBucketDescriptionVal}</h6>
-            <h6><small>Assigned To:</small>${newBucketAssignedToVal}</h6>
+            <h6><small>Assigned To: </small>${newBucketAssignedToVal}</h6>
             <div class="d-flex w-100 mb-3 justify-content-between">
               <small>Due: <strong><em>${newBucketDueDateVal}</strong></em></small>
-              <small class="badge badge-primary">${newBucketStatusVal}</small>
+              <small class="badge badge-primary"> ${newBucketStatusVal}</small>
             </div>
           </div>
         </div>
