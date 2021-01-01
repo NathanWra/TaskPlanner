@@ -1,21 +1,20 @@
-//outside the class, create an instance of TaslManager
-const bucketManager = new BucketManager();
+// Outside the class, create an instance of TaskManager
+const taskManager = new TaskManager(0);
 
-// Select the New Bucket Form
-const newBucketForm = document.querySelector("#newBucketForm");
+// Select the New Bucket/Task Form
+const newTaskForm = document.querySelector("#newTaskForm");
 
-// Add an 'onsubmit' event listener for new bucket
-newBucketForm.addEventListener("submit", (event) => {
+// Add an 'onsubmit' event listener for new bucket/task
+newTaskForm.addEventListener("submit", (event) => {
   // Prevent default action
   event.preventDefault();
 
-  // Select the inputs for new bucket
-  const newBucketNameInput = document.querySelector("#newBucketNameInput");
-  const newBucketDescription = document.querySelector("#newBucketDescription");
-  const newBucketAssignedTo = document.querySelector("#newBucketAssignedTo");
-  const newBucketDueDate = document.getElementById("newBucketDueDate");
-  const newBucketDateToday = new Date();
-  // const newBucketStatus = document.querySelector("#newBucketStatus");
+  // Select the inputs for new bucket/task
+  const newTaskNameInput = document.querySelector("#newTaskNameInput");
+  const newTaskDescription = document.querySelector("#newTaskDescription");
+  const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
+  const newTaskDueDate = document.querySelector("#newTaskDueDate");
+  const newDateToday = new Date();
   const errorMessage = document.querySelector("#alertMessage");
 
   /*
@@ -23,74 +22,82 @@ newBucketForm.addEventListener("submit", (event) => {
     */
 
   // Get the values of the inputs
-  const newBucketNameVal = newBucketNameInput.value;
-  const newBucketDescriptionVal = newBucketDescription.value;
-  const newBucketAssignedToVal = newBucketAssignedTo.value;
-  // const newBucketStatusVal = newBucketStatus.value;
-  const newBucketDueDateVal = newBucketDueDate.value.trim()
-    ? new Date(newBucketDueDate.value)
+  const name = newTaskNameInput.value;
+  const description = newTaskDescription.value;
+  const assignedTo = newTaskAssignedTo.value;
+  const dueDate = newTaskDueDate.value.trim()
+    ? new Date(newTaskDueDate.value)
     : null;
 
-  if (!validFormFieldInput(newBucketNameVal)) {
+  // Alert for the validity of the input values
+  if (!validFormFieldInput(name)) {
     errorMessage.innerHTML = "Please enter a valid task name.";
     errorMessage.style.color = "red";
     errorMessage.style.display = "block";
-    newBucketNameInput.style.borderColor = "red";
-    newBucketNameInput.focus();
-  } else if (!validFormFieldInput(newBucketDescriptionVal)) {
+    newTaskNameInput.style.borderColor = "red";
+    newTaskNameInput.focus();
+  } else if (!validFormFieldInput(description)) {
     errorMessage.innerHTML = "Please enter a proper task description.";
     errorMessage.style.color = "red";
     errorMessage.style.display = "block";
-    newBucketDescription.style.borderColor = "red";
-    newBucketDescription.focus();
-  } else if (!validFormFieldInput(newBucketAssignedToVal)) {
+    newTaskDescription.style.borderColor = "red";
+    newTaskDescription.focus();
+  } else if (!validFormFieldInput(assignedTo)) {
     errorMessage.innerHTML = "Please enter a person's name.";
     errorMessage.style.color = "red";
     errorMessage.style.display = "block";
-    newBucketAssignedTo.style.borderColor = "red";
-    newBucketAssignedTo.focus();
-  } else if (
-    newBucketDueDate.value == null ||
-    newBucketDueDateVal < newBucketDateToday
-  ) {
+    newTaskAssignedTo.style.borderColor = "red";
+    newTaskAssignedTo.focus();
+  } else if (newTaskDueDate.value == null || dueDate < newDateToday) {
     errorMessage.innerHTML = "Please choose a valid date.";
     errorMessage.style.color = "red";
     errorMessage.style.display = "block";
-    newBucketDueDate.style.borderColor = "red";
-    newBucketDueDate.focus();
-    // } else if (!validFormFieldInput(newBucketStatusVal)) {
-    //   errorMessage.innerHTML = "Please select one.";
-    //   errorMessage.style.color = "red";
-    //   errorMessage.style.display = "block";
-    //   newBucketStatus.style.borderColor = "red";
-    //   newBucketStatus.focus();
+    newTaskDueDate.style.borderColor = "red";
+    newTaskDueDate.focus();
   } else {
     errorMessage.innerHTML = "Well Done. Great Job!";
     errorMessage.style.color = "green";
     errorMessage.style.display = "block";
-    newBucketNameInput.style.borderColor = "";
-    newBucketDescription.style.borderColor = "";
-    newBucketAssignedTo.style.borderColor = "";
-    newBucketDueDate.style.borderColor = "";
-    // newBucketStatus.style.borderColor = "";
+    newTaskNameInput.style.borderColor = "";
+    newTaskDescription.style.borderColor = "";
+    newTaskAssignedTo.style.borderColor = "";
+    newTaskDueDate.style.borderColor = "";
 
-    bucketManager.addBucket(
-      newBucketNameVal,
-      newBucketDescriptionVal,
-      newBucketAssignedToVal,
-      newBucketDueDateVal
-      // newBucketStatusVal
-    );
+    taskManager.addTask(name, description, assignedTo, dueDate);
 
     // Render the tasks
-    bucketManager.displayBucket();
-    $("#newBucket").modal("hide");
+    taskManager.render();
+    $("#newTask").modal("hide");
 
-    newBucketNameInput.value = "";
-    newBucketDescription.value = "";
-    newBucketAssignedTo.value = "";
-    newBucketDueDate.value = "";
-    // newBucketStatus.value = "";
+    newTaskNameInput.value = "";
+    newTaskDescription.value = "";
+    newTaskAssignedTo.value = "";
+    newTaskDueDate.value = "";
+  }
+});
+
+// Select the Tasks List
+const tasksList = document.querySelector("#tasksList");
+
+// Add an 'onclick' event listener to the Tasks List
+tasksList.addEventListener("click", (event) => {
+  // Check if a "Mark As Done" button was clicked
+  if (event.target.classList.contains("done-button")) {
+    // Get the parent Task
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+
+    // Get the taskId of the parent Task.
+    const taskId = Number(parentTask.dataset.taskId);
+
+    // Get the task from the TaskManager using the taskId
+    const task = taskManager.getTaskById(taskId);
+
+    // Update the task status to 'DONE'
+    task.status = "DONE";
+
+    // Render the tasks
+    taskManager.render();
   }
 });
 
@@ -102,4 +109,4 @@ function validFormFieldInput(data) {
   }
 }
 
-console.log(bucketManager);
+console.log(taskManager);
