@@ -1,132 +1,135 @@
-// Create the HTML for a task
-const createBucketHtml = (
-  id,
-  newBucketNameVal,
-  newBucketDescriptionVal,
-  newBucketAssignedToVal,
-  newBucketDueDateVal,
-  newBucketStatusVal
-) => `
-    
-      <div role="card">
-        <div class="card shadow p2 mb-4 bg m-2">
-          <div class="card-body text-justify" background-image: url(fullBucket.webp)">
-            <h5 class="card-text">${newBucketNameVal}</h5>
-            <h6>${newBucketDescriptionVal}</h6>
-            <h6><small>Assigned To: </small>${newBucketAssignedToVal}</h6>
-            <div class="d-flex w-100 mb-3 justify-content-between">
-              <small>Due: <strong><em>${newBucketDueDateVal}</strong></em></small>
-              <small class="badge badge-primary"> ${newBucketStatusVal}</small>
-            </div>
-            <div class="card-columns-footer">
-                  <button
-                    type="button"
-                    style="color: black(67, 17, 114)"
-                    class="close"
-                    data-dismiss="card"
-                    aria-label="Close"
-                    data-button-type="delete"
-                    value="${id}"
-                  >
-                    <i class="fa fa-trash-o"></i>
-                  </button>
-                  <button
-                    type="button"
-                    style="color: black(67, 17, 114)"
-                    class="close"
-                    data-dismiss="card"
-                    aria-label="Close"
-                    data-button-type="markDone"
-                    value="${id}"
-                  >
-                    <i class="fa fa-check-square-o"></i>
-                  </button>
-                  <button
-                    type="button"
-                    style="color: black(67, 17, 114)"
-                    class="close"
-                    data-toggle="modal"
-                    data-target="#editBucket"
-                    data-button-type="edit"
-                    value="${id}"
-                  >
-                    <i class="fa fa-edit"></i>
-                  </button>
-                </div>
+// Add an data-task-id attribute to each task
+
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
+    <div role="card" data-task-id=${id}>
+      <div class="card shadow p2 mb-4 bg m-2">
+        <div class="card-body text-justify">
+          <h5 class="card-text">${name}</h5>
+          <h6>${description}</h6>
+          <h6><small>Assigned To: </small>${assignedTo}</h6>
+        
+          <div class="d-flex w-100 mb-3 justify-content-between">
+            <small>Due: <strong><em>${dueDate}</strong></em></small>
+            <small class="badge ${
+              status === "TODO" ? "badge-primary" : "badge-success"
+            }">${status}</small>
           </div>
-        </div>
-      </div>
+
+          <div class="d-flex w-100 justify-content-end">
+            
+            <button 
+              type="button"
+              style="color: black(67, 17, 114)"
+              data-button-type="markDone"
+              class="i fa fa-check close done-button ${
+                status === "TODO" ? "visible" : "invisible"
+              }" 
+            >
+            </button>
+            
+            <button
+                type="button"
+                style="color: black(67, 17, 114)"
+                class="close"
+                data-toggle="modal"
+                data-target="#editTask"
+                data-button-type="edit"
+                value="${id}"
+            >
+                <i class="fa fa-edit"></i>
+            </button>
+             
+            <button
+                type="button"
+                style="color: black(67, 17, 114)"
+                class="close delete"
+                data-dismiss="card"
+                aria-label="close"
+                data-button-type="delete"
+                value="${id}"
+            >
+                <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+        </div>  
+      </div>  
+    </div>
 `;
 
 // Create a TaskManager class
-class BucketManager {
+class TaskManager {
   // Set up the tasks and currentId property in the constructor
   constructor(currentId = 0) {
-    this.buckets = [];
+    this.tasks = [];
     this.currentId = currentId;
   }
 
   // Create the addTask method
-  addBucket(
-    newBucketName,
-    newBucketDescription,
-    newBucketAssignedTo,
-    newBucketDueDate
-  ) {
-    console.log("newBucketName: " + newBucketName);
-    console.log("newBucketDescription: " + newBucketDescription);
-    console.log("newBucketAssignedTo: " + newBucketAssignedTo);
-    console.log("newBucketDueDate: " + newBucketDueDate);
-    const bucket = {
+  addTask(name, description, assignedTo, dueDate) {
+    const task = {
       // Increment the currentId property
       id: this.currentId++,
-      name: newBucketName,
-      description: newBucketDescription,
-      assignedTo: newBucketAssignedTo,
-      dueDate: newBucketDueDate,
+      name: name,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: dueDate,
       status: "TODO",
     };
 
     // Push the task to the tasks property
-    this.buckets.push(bucket);
+    this.tasks.push(task);
+  }
+
+  getTaskById(taskId) {
+    // Create a variable to store the found task
+    let foundTask;
+
+    // Loop over the tasks and find the task with the id passed as a parameter
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
+      const task = this.tasks[i];
+
+      // Check if its the right task by comparing the task's id to the id passed as a parameter
+      if (task.id === taskId) {
+        // Store the task in the foundTask variable
+        foundTask = task;
+      }
+    }
+
+    // Return the found task
+    return foundTask;
   }
 
   // function to display the bucket on the browser
-  // to render
-  displayBucket() {
-    const bucketsHtmlList = []; // initialize an array to store the tasks
+  render() {
+    const tasksHtmlList = [];
 
-    // Loops through buckets array objects to store in BucketsHtmlList
-    for (let i = 0; i < this.buckets.length; i++) {
-      // Get the current task in the loop
-      const bucket = this.buckets[i];
+    // Loops through tasks array objects to store in tasksHtmlList
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i]; // initialize an array to store the tasks
 
       // Format the date
-      const date = new Date(bucket.dueDate);
+      const date = new Date(task.dueDate);
       const formattedDate =
         date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
       // Pass the task id as a parameter
-      const bucketHtml = createBucketHtml(
-        // call the function expression creatbucketHtml with parameters
-        this.buckets[i].id,
-        this.buckets[i].name,
-        this.buckets[i].description,
-        this.buckets[i].assignedTo,
+      const taskHtml = createTaskHtml(
+        // call the function expression creattaskHtml with parameters
+        task.id,
+        task.name,
+        task.description,
+        task.assignedTo,
         formattedDate,
-        this.buckets[i].status
+        task.status
       );
 
-      bucketsHtmlList.push(bucketHtml); // push the new bucket values to bucketHtmlList
+      tasksHtmlList.push(taskHtml); // push the new task values to taskHtmlList
     }
 
-    //const bucketsHtml = bucketsHtmlList;
+    const tasksHtml = tasksHtmlList.join("\n");
 
-    const bucketListDiv = document.querySelector("#bucketListDiv");
-    bucketListDiv.innerHTML = bucketsHtmlList;
+    const tasksList = document.querySelector("#tasksList");
+    tasksList.innerHTML = tasksHtml;
   }
 }
-
-// Create the bucketsHtml by joining each item in the bucketsHtmlList
-// with a new line in between each item.
-// const bucketsHtml = bucketsHtmlList.join("\n");

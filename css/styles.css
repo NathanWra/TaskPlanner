@@ -22,7 +22,7 @@ h1 {
   text-shadow: 1px 1px 2px darkblue, 0 0 2em blue, 0 0 0.4em blue;
 }
 
-h3 {
+h2 {
   text-align: center;
   color: lightyellow;
   font: outline;
@@ -46,11 +46,11 @@ h3 {
 
 /* changed icon text color on card */
 
-.card-text1 {
+.card-body {
   color: rgb(67, 17, 114);
   font-weight: 600;
   /* added pointer to card icon */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* tried to add a hover on cards but didn't work */
@@ -80,7 +80,7 @@ h3 {
   background-color: green;
 }
 
-/* wanted to put background img on cards & modal but didn't work */
+/* Added background img on cards & modal forms */
 
 .card {
   background-color: rgb(245, 220, 82);
