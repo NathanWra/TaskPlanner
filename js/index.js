@@ -1,6 +1,12 @@
 // Outside the class, create an instance of TaskManager
 const taskManager = new TaskManager(0);
 
+// Load the tasks from localStorage
+taskManager.load();
+
+// Render the tasks to the page
+taskManager.render();
+
 // Select the New Bucket/Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 
@@ -65,6 +71,9 @@ newTaskForm.addEventListener("submit", (event) => {
 
     taskManager.addTask(name, description, assignedTo, dueDate);
 
+    // Save the tasks to localStorage
+    taskManager.save();
+
     // Render the tasks
     taskManager.render();
     $("#newTask").modal("hide");
@@ -95,6 +104,25 @@ tasksList.addEventListener("click", (event) => {
 
     // Update the task status to 'DONE'
     task.status = "DONE";
+
+    // Save the tasks to localStorage
+    taskManager.save();
+
+    // Render the tasks
+    taskManager.render();
+  }
+  // Check if a "Delete" button was clicked
+  if (event.target.classList.contains("delete-button")) {
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+
+    const taskId = Number(parentTask.dataset.taskId);
+
+    // Delete the task
+    taskManager.deleteTask(taskId);
+
+    // Save the tasks to localStorage
+    taskManager.save();
 
     // Render the tasks
     taskManager.render();
