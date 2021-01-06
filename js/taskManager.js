@@ -2,10 +2,10 @@
 
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
     <div role="card" data-task-id=${id}>
-      <div class="card shadow p2 mb-4 bg m-2">
+      <div class="card shadow p2 mb-4 bg m-2" style="width: 20rem">
         <div class="card-body text-justify">
-          <h5 class="card-text">${name}</h5>
-          <h6>${description}</h6>
+          <h4 class="card-title">${name}</h4>
+          <h5>${description}</h5>
           <h6><small>Assigned To: </small>${assignedTo}</h6>
         
           <div class="d-flex w-100 mb-3 justify-content-between">
@@ -15,13 +15,13 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             }">${status}</small>
           </div>
 
-          <div class="d-flex w-100 justify-content-end">
+          <div class="card-btn d-flex justify-content-end">
             
             <button 
               type="button"
               style="color: black(67, 17, 114)"
               data-button-type="markDone"
-              class="i fa fa-check close done-button ${
+              class="i fa fa-check-square-o close done-button ${
                 status === "TODO" ? "visible" : "invisible"
               }" 
             >
@@ -30,25 +30,23 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             <button
                 type="button"
                 style="color: black(67, 17, 114)"
-                class="close"
+                class="i fa fa-edit close"
                 data-toggle="modal"
                 data-target="#editTask"
                 data-button-type="edit"
                 value="${id}"
             >
-                <i class="fa fa-edit"></i>
             </button>
              
             <button
                 type="button"
                 style="color: black(67, 17, 114)"
-                class="close delete"
+                class="i fa fa-trash-o close delete-button"
                 data-dismiss="card"
                 aria-label="close"
                 data-button-type="delete"
                 value="${id}"
             >
-                <i class="fa fa-trash-o"></i>
             </button>
           </div>
         </div>  
@@ -78,6 +76,27 @@ class TaskManager {
 
     // Push the task to the tasks property
     this.tasks.push(task);
+  }
+
+  // Create the deleteTask method
+  deleteTask(taskId) {
+    // Create an empty array and store it in a new variable, newTasks
+    const newTasks = [];
+
+    // Loop over the tasks
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
+      const task = this.tasks[i];
+
+      // Check if the task id is not the task id passed in as a parameter
+      if (task.id !== taskId) {
+        // Push the task to the newTasks array
+        newTasks.push(task);
+      }
+    }
+
+    // Set this.tasks to newTasks
+    this.tasks = newTasks;
   }
 
   getTaskById(taskId) {
@@ -131,5 +150,41 @@ class TaskManager {
 
     const tasksList = document.querySelector("#tasksList");
     tasksList.innerHTML = tasksHtml;
+  }
+
+  // Create the save method
+  save() {
+    // Create a JSON string of the tasks
+    const tasksJson = JSON.stringify(this.tasks);
+
+    // Store the JSON string in localStorage
+    localStorage.setItem("tasks", tasksJson);
+
+    // Convert the currentId to a string;
+    const currentId = String(this.currentId);
+
+    // Store the currentId in localStorage
+    localStorage.setItem("currentId", currentId);
+  }
+
+  // Create the load method
+  load() {
+    // Check if any tasks are saved in localStorage
+    if (localStorage.getItem("tasks")) {
+      // Get the JSON string of tasks in localStorage
+      const tasksJson = localStorage.getItem("tasks");
+
+      // Convert it to an array and store it in our TaskManager
+      this.tasks = JSON.parse(tasksJson);
+    }
+
+    // Check if the currentId is saved in localStorage
+    if (localStorage.getItem("currentId")) {
+      // Get the currentId string in localStorage
+      const currentId = localStorage.getItem("currentId");
+
+      // Convert the currentId to a number and store it in our TaskManager
+      this.currentId = Number(currentId);
+    }
   }
 }

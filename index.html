@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Trial Bucket List</title>
+    <title>Bucket List</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -38,7 +38,7 @@
 
   <body>
     <div class="container">
-      <h1 class="my-3">Bucket List!</h1>
+      <h1 class="mt-3">Bucket List!</h1>
       <h2>
         Things to do in the next 90 days.
 
@@ -50,7 +50,7 @@
           data-toggle="modal"
           data-target="#newTask"
         >
-          <i id="addBtn" class="fa fa-plus" style="font: size 24px"></i>
+          <i id="addBtn" class="fa fa-plus"></i>
         </button>
       </h2>
 
@@ -96,7 +96,7 @@
                         />
                       </div>
 
-                      <div class="form">
+                      <div class="form-group">
                         <label for="newTaskDescription">Description</label>
                         <textarea
                           type="text"
@@ -153,7 +153,7 @@
     <!-- Task List here -->
 
     <div class="container justify-content-center">
-      <div class="d-flex w-200 mt-2" id="tasksList">
+      <div class="d-flex flex-wrap justify-content-center" id="tasksList">
         <div class="col"></div>
       </div>
     </div>
