@@ -9,30 +9,35 @@ const assert = require("assert");
 // Add a test case that tests how the TaskManager is initialized, ie: the constructor being called when a new TaskManager() is initialized.
 
 describe("taskManager", () => {
-  const tasks = ;
+  // some definitions
   afterEach(() => {
     // hook block to reset after each test 
   });
 
-  it("addTask", () => {
-    // Setup:
-
-    // Exercise: 
-    // Verify: 
-    // Teardown: in hook block at top if possible
+  describe("addTask", () => {
+    it("adds an object to the taskManager", () => {
+      // Setup:
+      // Exercise:
+      // Verify:
+      // Teardown: in hook block at top if possible
+    });
   });
 
-  it("deleteTask", () => {
-    // Setup:
-    // Exercise:
-    // Verify:
-    // Teardown: in hook block at top if possible
+  describe("deleteTask", () => {
+    it("deletes task", () => {
+      // Setup:
+      // Exercise:
+      // Verify:
+      // Teardown: in hook block at top if possible
+    });
   });
 
-  it("getTaskById", () => {
-    // Setup:
-    // Exercise:
-    // Verify:
-    // Teardown: in hook block at top if possible
+  describe("getTaskById", () => {
+    it("retrieves task by id", () => {
+      // Setup:
+      // Exercise:
+      // Verify:
+      // Teardown: in hook block at top if possible
+    });
   });
 });
