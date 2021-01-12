@@ -1,0 +1,26 @@
+{
+  "name": "taskplanner",
+  "version": "1.0.0",
+  "description": "taskManager",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanWra/TaskPlanner.git"
+  },
+  "author": "Manoi and Nathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanWra/TaskPlanner/issues"
+  },
+  "homepage": "https://github.com/NathanWra/TaskPlanner#readme"
+}
