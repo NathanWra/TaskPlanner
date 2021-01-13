@@ -14,6 +14,46 @@ body {
   background-attachment: fixed;
 }
 
+/* CSS for Weather API */
+
+.weatherContainer {
+  width: 40rem;
+  margin-top: inherit;
+}
+
+#weatherCards {
+  background-image: linear-gradient(
+      rgba(10, 27, 182, 0.5),
+      rgba(10, 27, 182, 0.5)
+        /* rgba(54, 21, 4, 0.5),
+      rgba(54, 21, 4, 0.5) */
+    ),
+    url(../bucketImages/nightSky.webp);
+  border-radius: 5px;
+}
+
+#weather {
+  text-align: center;
+  color: aqua;
+  text-shadow: 1px 1px 2px darkblue, 0 0 2em blue, 0 0 0.4em blue;
+}
+
+#cityName {
+  text-shadow: 1px 1px 2px darkturquoise, 0 0 2em lightblue, 0 0 0.4em lightblue;
+  text-align: center;
+}
+
+.input-group {
+  font-size: 10px;
+}
+
+p {
+  text-align: center;
+  font-weight: 500;
+  font-style: oblique;
+  font-size: 12px;
+}
+
 /* centered heading & added shadow to text */
 
 h1 {
