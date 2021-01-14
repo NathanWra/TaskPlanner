@@ -1,4 +1,5 @@
 const assert = require("assert");
+const TaskManager = require("./../js/taskManager.js");
 
 // In this step, we'll test some of the methods that exist on our TaskManager class.
 
@@ -8,36 +9,29 @@ const assert = require("assert");
 // getTaskById
 // Add a test case that tests how the TaskManager is initialized, ie: the constructor being called when a new TaskManager() is initialized.
 
-describe("taskManager", () => {
-  // some definitions
-  afterEach(() => {
-    // hook block to reset after each test 
-  });
+describe("testing TaskManager", () => {
+  it("adds an object to the taskManager", () => {
+//       // Setup:
+    const taskManager = new TaskManager(0);
+//       // Exercise:
+    taskManager.addTask("shoppping", "At Aldi", "Manoi", "24/01/2021");
+    let len = taskManager.tasks.length;
+//       // Verify:
+assert.strictEqual(len, 1)
+//       // Teardown: in hook block at top if possible
+    });
 
-  describe("addTask", () => {
-    it("adds an object to the taskManager", () => {
-      // Setup:
-      // Exercise:
-      // Verify:
-      // Teardown: in hook block at top if possible
+  it("deletes task", () =>{
+    const taskManager = new TaskManager(1);
+    taskManager.deleteTask()
+    let tasks = taskManager.tasks.length
+    assert.strictEqual(tasks, 0);
+    });
+
+    it("get task by id", () => {
+      const taskManager = new TaskManager(0);
+      newTask = taskManager.addTask("shoppping", "At Aldi", "Manoi", "24/01/2021");
+      foundTask = taskManager.getTaskById(1)
+      assert.deepEqual(foundTask, newTask);
     });
   });
-
-  describe("deleteTask", () => {
-    it("deletes task", () => {
-      // Setup:
-      // Exercise:
-      // Verify:
-      // Teardown: in hook block at top if possible
-    });
-  });
-
-  describe("getTaskById", () => {
-    it("retrieves task by id", () => {
-      // Setup:
-      // Exercise:
-      // Verify:
-      // Teardown: in hook block at top if possible
-    });
-  });
-});
