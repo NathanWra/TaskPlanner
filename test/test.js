@@ -22,16 +22,18 @@ assert.strictEqual(len, 1)
     });
 
   it("deletes task", () =>{
-    const taskManager = new TaskManager(1);
-    taskManager.deleteTask()
+    const taskManager = new TaskManager(0);
+    taskManager.addTask("shoppping", "At Aldi", "Manoi", "24/01/2021");
+    taskManager.deleteTask(0);
     let tasks = taskManager.tasks.length
     assert.strictEqual(tasks, 0);
     });
 
     it("get task by id", () => {
       const taskManager = new TaskManager(0);
-      newTask = taskManager.addTask("shoppping", "At Aldi", "Manoi", "24/01/2021");
-      foundTask = taskManager.getTaskById(1)
-      assert.deepEqual(foundTask, newTask);
+      newTask = taskManager.addTask("shopping", "At Aldi", "Manoi", "24/01/2021");
+      foundTask = taskManager.getTaskById(0)
+      newTaskName = "shopping"
+      assert.deepStrictEqual(foundTask.name, newTaskName);
     });
   });
